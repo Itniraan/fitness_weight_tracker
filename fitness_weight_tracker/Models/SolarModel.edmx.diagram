@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6d074ca2af47417cbff811efe2220dd7" Name="Diagram1">
+        <EntityTypeShape EntityType="fit_trackModel.database_firewall_rules" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="fit_trackModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="fit_trackModel.AspNetRole" Width="1.5" PointX="3.75" PointY="4.375" />
+        <EntityTypeShape EntityType="fit_trackModel.AspNetUserClaim" Width="1.5" PointX="8.25" PointY="7.25" />
+        <EntityTypeShape EntityType="fit_trackModel.AspNetUserLogin" Width="1.5" PointX="8.25" PointY="1.25" />
+        <EntityTypeShape EntityType="fit_trackModel.AspNetUser" Width="1.5" PointX="6" PointY="3.125" />
+        <EntityTypeShape EntityType="fit_trackModel.UserProfile" Width="1.5" PointX="8.25" PointY="3.75" />
+        <AssociationConnector Association="fit_trackModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="fit_trackModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="fit_trackModel.FK__UserProfi__UserI__48CFD27E" />
+        <AssociationConnector Association="fit_trackModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
