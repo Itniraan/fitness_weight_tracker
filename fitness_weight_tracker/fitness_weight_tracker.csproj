@@ -117,6 +117,10 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Linq.Dynamic, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -137,9 +141,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="404.aspx" />
+    <Content Include="admin\exercise.aspx" />
     <Content Include="admin\main-menu.aspx" />
     <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="css.css" />
+    <Content Include="default.aspx" />
+    <Content Include="error.aspx" />
+    <Content Include="images\logo.png" />
     <Content Include="login.aspx" />
+    <Content Include="logout.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config" />
     <Content Include="register.aspx" />
@@ -172,9 +183,27 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.15.0-build30412.js" />
     <Content Include="scripts\ai.0.15.0-build30412.min.js" />
+    <Content Include="admin\editProfile.aspx" />
+    <Content Include="users\foodLog.aspx" />
+    <Content Include="users\addFood.aspx" />
+    <Content Include="admin\profile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\exercise.aspx.cs">
+      <DependentUpon>exercise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\exercise.aspx.designer.cs">
+      <DependentUpon>exercise.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\main-menu.aspx.cs">
       <DependentUpon>main-menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -182,12 +211,39 @@
     <Compile Include="admin\main-menu.aspx.designer.cs">
       <DependentUpon>main-menu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Activity.cs">
+      <DependentUpon>SolarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ActivityLog.cs">
+      <DependentUpon>SolarModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetRole.cs">
       <DependentUpon>SolarModel.tt</DependentUpon>
@@ -209,6 +265,12 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Food.cs">
+      <DependentUpon>SolarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FoodLog.cs">
+      <DependentUpon>SolarModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserProfile.cs">
       <DependentUpon>SolarModel.tt</DependentUpon>
@@ -244,10 +306,37 @@
       <DependentUpon>SolarModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="admin\editProfile.aspx.cs">
+      <DependentUpon>editProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\editProfile.aspx.designer.cs">
+      <DependentUpon>editProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="users\foodLog.aspx.cs">
+      <DependentUpon>foodLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="users\foodLog.aspx.designer.cs">
+      <DependentUpon>foodLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="users\addFood.aspx.cs">
+      <DependentUpon>addFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="users\addFood.aspx.designer.cs">
+      <DependentUpon>addFood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -15,6 +15,26 @@
           <Property Name="Model" Type="varbinary(max)" Nullable="false" />
           <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
         </EntityType>
+        <EntityType Name="Activities">
+          <Key>
+            <PropertyRef Name="ActID" />
+          </Key>
+          <Property Name="ActID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActType" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ActDuration" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="ActWeight" Type="int" />
+          <Property Name="ActReps" Type="int" />
+        </EntityType>
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="ActLogID" />
+          </Key>
+          <Property Name="ActLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ActID" Type="int" Nullable="false" />
+          <Property Name="ActDate" Type="date" Nullable="false" />
+        </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -66,6 +86,30 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="FoodID" />
+          </Key>
+          <Property Name="FoodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Calories" Type="int" />
+          <Property Name="FoodGroup" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MealServingSize" Type="varchar" MaxLength="50" />
+          <Property Name="Carbs" Type="int" />
+          <Property Name="TotalFat" Type="int" />
+          <Property Name="Protein" Type="int" />
+          <Property Name="Sodium" Type="int" />
+        </EntityType>
+        <EntityType Name="FoodLog">
+          <Key>
+            <PropertyRef Name="FoodLogID" />
+          </Key>
+          <Property Name="FoodLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FoodID" Type="int" Nullable="false" />
+          <Property Name="Meal" Type="varchar" MaxLength="10" />
+          <Property Name="FoodDate" Type="date" Nullable="false" />
+        </EntityType>
         <EntityType Name="UserProfile">
           <Key>
             <PropertyRef Name="ProfileID" />
@@ -97,6 +141,54 @@ warning 6002: The table/view 'fit_track.sys.database_firewall_rules' does not ha
           <Property Name="create_date" Type="datetime" Nullable="false" />
           <Property Name="modify_date" Type="datetime" Nullable="false" />
         </EntityType>
+        <Association Name="FK__ActivityL__ActID__5441852A">
+          <End Role="Activities" Type="Self.Activities" Multiplicity="1" />
+          <End Role="ActivityLog" Type="Self.ActivityLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activities">
+              <PropertyRef Name="ActID" />
+            </Principal>
+            <Dependent Role="ActivityLog">
+              <PropertyRef Name="ActID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityL__UserI__534D60F1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ActivityLog" Type="Self.ActivityLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityLog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FoodLog__FoodID__4E88ABD4">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="FoodLog" Type="Self.FoodLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="FoodLog">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FoodLog__UserID__4D94879B">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="FoodLog" Type="Self.FoodLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FoodLog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__UserProfi__UserI__48CFD27E">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
@@ -167,11 +259,15 @@ warning 6002: The table/view 'fit_track.sys.database_firewall_rules' does not ha
         </Association>
         <EntityContainer Name="fit_trackModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Activities" EntityType="Self.Activities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityLog" EntityType="Self.ActivityLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodLog" EntityType="Self.FoodLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
             <DefiningQuery>SELECT 
@@ -183,6 +279,22 @@ warning 6002: The table/view 'fit_track.sys.database_firewall_rules' does not ha
     [database_firewall_rules].[modify_date] AS [modify_date]
     FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK__ActivityL__ActID__5441852A" Association="Self.FK__ActivityL__ActID__5441852A">
+            <End Role="Activities" EntitySet="Activities" />
+            <End Role="ActivityLog" EntitySet="ActivityLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityL__UserI__534D60F1" Association="Self.FK__ActivityL__UserI__534D60F1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ActivityLog" EntitySet="ActivityLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FoodLog__FoodID__4E88ABD4" Association="Self.FK__FoodLog__FoodID__4E88ABD4">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="FoodLog" EntitySet="FoodLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FoodLog__UserID__4D94879B" Association="Self.FK__FoodLog__UserID__4D94879B">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="FoodLog" EntitySet="FoodLog" />
+          </AssociationSet>
           <AssociationSet Name="FK__UserProfi__UserI__48CFD27E" Association="Self.FK__UserProfi__UserI__48CFD27E">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="UserProfile" EntitySet="UserProfile" />
@@ -248,6 +360,26 @@ warning 6002: The table/view 'fit_track.sys.database_firewall_rules' does not ha
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="Foods" EntityType="fit_trackModel.Food" />
+          <EntitySet Name="FoodLogs" EntityType="fit_trackModel.FoodLog" />
+          <AssociationSet Name="FK__FoodLog__UserID__4D94879B" Association="fit_trackModel.FK__FoodLog__UserID__4D94879B">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="FoodLog" EntitySet="FoodLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FoodLog__FoodID__4E88ABD4" Association="fit_trackModel.FK__FoodLog__FoodID__4E88ABD4">
+            <End Role="Food" EntitySet="Foods" />
+            <End Role="FoodLog" EntitySet="FoodLogs" />
+          </AssociationSet>
+          <EntitySet Name="Activities" EntityType="fit_trackModel.Activity" />
+          <EntitySet Name="ActivityLogs" EntityType="fit_trackModel.ActivityLog" />
+          <AssociationSet Name="FK__ActivityL__ActID__5441852A" Association="fit_trackModel.FK__ActivityL__ActID__5441852A">
+            <End Role="Activity" EntitySet="Activities" />
+            <End Role="ActivityLog" EntitySet="ActivityLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityL__UserI__534D60F1" Association="fit_trackModel.FK__ActivityL__UserI__534D60F1">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ActivityLog" EntitySet="ActivityLogs" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -308,6 +440,8 @@ warning 6002: The table/view 'fit_track.sys.database_firewall_rules' does not ha
           <NavigationProperty Name="AspNetUserLogins" Relationship="fit_trackModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
           <NavigationProperty Name="UserProfiles" Relationship="fit_trackModel.FK__UserProfi__UserI__48CFD27E" FromRole="AspNetUser" ToRole="UserProfile" />
           <NavigationProperty Name="AspNetRoles" Relationship="fit_trackModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+          <NavigationProperty Name="FoodLogs" Relationship="fit_trackModel.FK__FoodLog__UserID__4D94879B" FromRole="AspNetUser" ToRole="FoodLog" />
+          <NavigationProperty Name="ActivityLogs" Relationship="fit_trackModel.FK__ActivityL__UserI__534D60F1" FromRole="AspNetUser" ToRole="ActivityLog" />
         </EntityType>
         <EntityType Name="UserProfile">
           <Key>
@@ -366,6 +500,104 @@ warning 6002: The table/view 'fit_track.sys.database_firewall_rules' does not ha
         <Association Name="AspNetUserRoles">
           <End Type="fit_trackModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="fit_trackModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="FoodID" />
+          </Key>
+          <Property Name="FoodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Calories" Type="Int32" />
+          <Property Name="FoodGroup" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MealServingSize" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Carbs" Type="Int32" />
+          <Property Name="TotalFat" Type="Int32" />
+          <Property Name="Protein" Type="Int32" />
+          <Property Name="Sodium" Type="Int32" />
+          <NavigationProperty Name="FoodLogs" Relationship="fit_trackModel.FK__FoodLog__FoodID__4E88ABD4" FromRole="Food" ToRole="FoodLog" />
+        </EntityType>
+        <EntityType Name="FoodLog">
+          <Key>
+            <PropertyRef Name="FoodLogID" />
+          </Key>
+          <Property Name="FoodLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FoodID" Type="Int32" Nullable="false" />
+          <Property Name="Meal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FoodDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="AspNetUser" Relationship="fit_trackModel.FK__FoodLog__UserID__4D94879B" FromRole="FoodLog" ToRole="AspNetUser" />
+          <NavigationProperty Name="Food" Relationship="fit_trackModel.FK__FoodLog__FoodID__4E88ABD4" FromRole="FoodLog" ToRole="Food" />
+        </EntityType>
+        <Association Name="FK__FoodLog__UserID__4D94879B">
+          <End Type="fit_trackModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="fit_trackModel.FoodLog" Role="FoodLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FoodLog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FoodLog__FoodID__4E88ABD4">
+          <End Type="fit_trackModel.Food" Role="Food" Multiplicity="1" />
+          <End Type="fit_trackModel.FoodLog" Role="FoodLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="FoodLog">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ActID" />
+          </Key>
+          <Property Name="ActID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActType" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ActDuration" Type="Decimal" Nullable="false" Precision="4" Scale="2" />
+          <Property Name="ActWeight" Type="Int32" />
+          <Property Name="ActReps" Type="Int32" />
+          <NavigationProperty Name="ActivityLogs" Relationship="fit_trackModel.FK__ActivityL__ActID__5441852A" FromRole="Activity" ToRole="ActivityLog" />
+        </EntityType>
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="ActLogID" />
+          </Key>
+          <Property Name="ActLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ActID" Type="Int32" Nullable="false" />
+          <Property Name="ActDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Activity" Relationship="fit_trackModel.FK__ActivityL__ActID__5441852A" FromRole="ActivityLog" ToRole="Activity" />
+          <NavigationProperty Name="AspNetUser" Relationship="fit_trackModel.FK__ActivityL__UserI__534D60F1" FromRole="ActivityLog" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK__ActivityL__ActID__5441852A">
+          <End Type="fit_trackModel.Activity" Role="Activity" Multiplicity="1" />
+          <End Type="fit_trackModel.ActivityLog" Role="ActivityLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="ActID" />
+            </Principal>
+            <Dependent Role="ActivityLog">
+              <PropertyRef Name="ActID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityL__UserI__534D60F1">
+          <End Type="fit_trackModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="fit_trackModel.ActivityLog" Role="ActivityLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityLog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -462,6 +694,54 @@ warning 6002: The table/view 'fit_track.sys.database_firewall_rules' does not ha
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Foods">
+            <EntityTypeMapping TypeName="fit_trackModel.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="Sodium" ColumnName="Sodium" />
+                <ScalarProperty Name="Protein" ColumnName="Protein" />
+                <ScalarProperty Name="TotalFat" ColumnName="TotalFat" />
+                <ScalarProperty Name="Carbs" ColumnName="Carbs" />
+                <ScalarProperty Name="MealServingSize" ColumnName="MealServingSize" />
+                <ScalarProperty Name="FoodGroup" ColumnName="FoodGroup" />
+                <ScalarProperty Name="Calories" ColumnName="Calories" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodLogs">
+            <EntityTypeMapping TypeName="fit_trackModel.FoodLog">
+              <MappingFragment StoreEntitySet="FoodLog">
+                <ScalarProperty Name="FoodDate" ColumnName="FoodDate" />
+                <ScalarProperty Name="Meal" ColumnName="Meal" />
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FoodLogID" ColumnName="FoodLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Activities">
+            <EntityTypeMapping TypeName="fit_trackModel.Activity">
+              <MappingFragment StoreEntitySet="Activities">
+                <ScalarProperty Name="ActReps" ColumnName="ActReps" />
+                <ScalarProperty Name="ActWeight" ColumnName="ActWeight" />
+                <ScalarProperty Name="ActDuration" ColumnName="ActDuration" />
+                <ScalarProperty Name="ActType" ColumnName="ActType" />
+                <ScalarProperty Name="ActName" ColumnName="ActName" />
+                <ScalarProperty Name="ActID" ColumnName="ActID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityLogs">
+            <EntityTypeMapping TypeName="fit_trackModel.ActivityLog">
+              <MappingFragment StoreEntitySet="ActivityLog">
+                <ScalarProperty Name="ActDate" ColumnName="ActDate" />
+                <ScalarProperty Name="ActID" ColumnName="ActID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ActLogID" ColumnName="ActLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -7,63 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace fitness_weight_tracker {
+namespace fitness_weight_tracker.users {
     
     
-    public partial class login {
+    public partial class profile {
         
         /// <summary>
-        /// lblStatus control.
+        /// lblUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatus;
+        protected global::System.Web.UI.WebControls.Label lblUsername;
         
         /// <summary>
-        /// txtUserName control.
+        /// lblFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::System.Web.UI.WebControls.Label lblFirstName;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// lblLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Label lblLastName;
         
         /// <summary>
-        /// txtPassword control.
+        /// lblEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.Label lblEmail;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// lblUserHeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.Label lblUserHeight;
         
         /// <summary>
-        /// btnLogin control.
+        /// lblUserWeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Label lblUserWeight;
+        
+        /// <summary>
+        /// lblAge control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAge;
     }
 }

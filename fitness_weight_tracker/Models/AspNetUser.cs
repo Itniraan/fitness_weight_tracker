@@ -20,6 +20,8 @@ namespace fitness_weight_tracker.Models
             this.AspNetUserLogins = new HashSet<AspNetUserLogin>();
             this.UserProfiles = new HashSet<UserProfile>();
             this.AspNetRoles = new HashSet<AspNetRole>();
+            this.FoodLogs = new HashSet<FoodLog>();
+            this.ActivityLogs = new HashSet<ActivityLog>();
         }
     
         public string Id { get; set; }
@@ -39,5 +41,7 @@ namespace fitness_weight_tracker.Models
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual ICollection<UserProfile> UserProfiles { get; set; }
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
+        public virtual ICollection<FoodLog> FoodLogs { get; set; }
+        public virtual ICollection<ActivityLog> ActivityLogs { get; set; }
     }
 }
