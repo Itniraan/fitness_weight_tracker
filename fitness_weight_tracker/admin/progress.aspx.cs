@@ -26,6 +26,7 @@ namespace fitness_weight_tracker.users
                 Session["SortDirection"] = "ASC";
                 // If loading the page for the first time, populate the FoodLog grid
                 GetFoodLog();
+                GetActLog();
             }
         }
         protected void GetFoodLog()
@@ -56,7 +57,7 @@ namespace fitness_weight_tracker.users
             }
         }
 
-        /**protected void GetActLog()
+        protected void GetActLog()
         {
             try
             {
@@ -67,14 +68,14 @@ namespace fitness_weight_tracker.users
 
                     String sortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
                     // Query the Courses table, using the Enity Framework
-                    var FoodLog = from fl in db.FoodLogs
+                    var ActLog = from fl in db.FoodLogs
                                   join f in db.Foods on fl.FoodID equals f.FoodID
                                   join u in db.AspNetUsers on fl.UserID equals u.Id
                                   where fl.UserID == User.Identity.GetUserId()
                                   select new { fl.FoodLogID, f.FoodName };
 
 
-                    grdFoodLog.DataSource = FoodLog.AsQueryable().OrderBy(sortString).ToList();
+                    grdFoodLog.DataSource = ActLog.AsQueryable().OrderBy(sortString).ToList();
                     grdFoodLog.DataBind();
                 }
             }
@@ -82,7 +83,7 @@ namespace fitness_weight_tracker.users
             {
                 Response.Redirect("/error.aspx");
             }
-        }**/
+        }
 
         protected void grdFoodLog_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -100,6 +101,26 @@ namespace fitness_weight_tracker.users
         }
 
         protected void grdFoodLog_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+        }
+
+        protected void grdActLog_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void grdActLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
+
+        protected void grdActLog_Sorting(object sender, GridViewSortEventArgs e)
+        {
+
+        }
+
+        protected void grdActLog_RowDataBound(object sender, GridViewRowEventArgs e)
         {
 
         }
