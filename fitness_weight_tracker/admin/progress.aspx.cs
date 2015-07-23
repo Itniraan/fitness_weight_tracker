@@ -22,13 +22,41 @@ namespace fitness_weight_tracker.users
             lblName.Text = User.Identity.GetUserName();
             if (!IsPostBack)
             {
-                Session["SortColumn"] = "CourseID";
+                Session["SortColumn"] = "FoodLogID";
                 Session["SortDirection"] = "ASC";
                 // If loading the page for the first time, populate the FoodLog grid
                 GetFoodLog();
             }
         }
         protected void GetFoodLog()
+        {
+            try
+            {
+
+                // Connect to EF
+                using (fit_trackEntities db = new fit_trackEntities())
+                {
+                    String userID = Convert.ToString(User.Identity.GetUserId());
+                    String sortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
+                    // Query the Courses table, using the Enity Framework
+                    var FoodLog = (from fl in db.FoodLogs
+                                  join f in db.Foods on fl.FoodID equals f.FoodID
+                                  join u in db.AspNetUsers on fl.UserID equals u.Id
+                                  //where fl.UserID == userID
+                                  select new { fl.FoodLogID, f.FoodID, f.FoodName, fl.Meal, fl.FoodDate });
+
+
+                    grdFoodLog.DataSource = FoodLog.AsQueryable().OrderBy(sortString).ToList();
+                    grdFoodLog.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("/error.aspx");
+            }
+        }
+
+        /**protected void GetActLog()
         {
             try
             {
@@ -54,7 +82,7 @@ namespace fitness_weight_tracker.users
             {
                 Response.Redirect("/error.aspx");
             }
-        }
+        }**/
 
         protected void grdFoodLog_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {

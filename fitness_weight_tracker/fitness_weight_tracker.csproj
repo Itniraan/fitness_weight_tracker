@@ -184,8 +184,8 @@
     <Content Include="scripts\ai.0.15.0-build30412.js" />
     <Content Include="scripts\ai.0.15.0-build30412.min.js" />
     <Content Include="admin\editProfile.aspx" />
-    <Content Include="users\foodLog.aspx" />
-    <Content Include="users\addFood.aspx" />
+    <Content Include="admin\progress.aspx" />
+    <Content Include="admin\addFood.aspx" />
     <Content Include="admin\profile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -313,18 +313,18 @@
     <Compile Include="admin\editProfile.aspx.designer.cs">
       <DependentUpon>editProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="users\foodLog.aspx.cs">
-      <DependentUpon>foodLog.aspx</DependentUpon>
+    <Compile Include="admin\progress.aspx.cs">
+      <DependentUpon>progress.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="users\foodLog.aspx.designer.cs">
-      <DependentUpon>foodLog.aspx</DependentUpon>
+    <Compile Include="admin\progress.aspx.designer.cs">
+      <DependentUpon>progress.aspx</DependentUpon>
     </Compile>
-    <Compile Include="users\addFood.aspx.cs">
+    <Compile Include="admin\addFood.aspx.cs">
       <DependentUpon>addFood.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="users\addFood.aspx.designer.cs">
+    <Compile Include="admin\addFood.aspx.designer.cs">
       <DependentUpon>addFood.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\profile.aspx.cs">
