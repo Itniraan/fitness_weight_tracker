@@ -12,7 +12,7 @@
                 <asp:BoundField DataField="FoodName" HeaderText="Food Name" SortExpression="FoodName" />
                 <asp:BoundField DataField="Meal" HeaderText="Meal" SortExpression="Meal" />
                 <asp:BoundField DataField="FoodDate" HeaderText="Date Entered" SortExpression="FoodDate" />
-                <asp:HyperLinkField HeaderText="Edit" Text="Edit" NavigateUrl="~/food.aspx" DataNavigateUrlFields="FoodID" DataNavigateUrlFormatString="food.aspx?FoodID={0}" />
+                <asp:HyperLinkField HeaderText="Edit" Text="Edit" NavigateUrl="~/food.aspx" DataNavigateUrlFields="FoodLogID" DataNavigateUrlFormatString="food.aspx?FoodLogID={0}" />
                 <asp:CommandField HeaderText="Delete" DeleteText="Delete" ShowDeleteButton="true" />
             </Columns>
         </asp:GridView>
@@ -30,7 +30,7 @@
                 <asp:BoundField DataField="ActWeight" HeaderText="Activity Weight" SortExpression="ActWeight" />
                 <asp:BoundField DataField="ActReps" HeaderText="Activity Repetitions" SortExpression="ActReps" />
                 <asp:BoundField DataField="ActDate" HeaderText="Date Entered" SortExpression="ActDate" />
-                <asp:HyperLinkField HeaderText="Edit" Text="Edit" NavigateUrl="~/food.aspx" DataNavigateUrlFields="ActLogID" DataNavigateUrlFormatString="food.aspx?FoodID={0}" />
+                <asp:HyperLinkField HeaderText="Edit" Text="Edit" NavigateUrl="~/food.aspx" DataNavigateUrlFields="ActLogID" DataNavigateUrlFormatString="exercise.aspx?ActID={0}" />
                 <asp:CommandField HeaderText="Delete" DeleteText="Delete" ShowDeleteButton="true" />
             </Columns>
         </asp:GridView>

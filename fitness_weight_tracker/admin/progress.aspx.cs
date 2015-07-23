@@ -22,18 +22,18 @@ namespace fitness_weight_tracker.users
             lblName.Text = User.Identity.GetUserName();
             if (!IsPostBack)
             {
-                Session["SortColumn"] = "FoodLogID";
+                
                 Session["SortDirection"] = "ASC";
                 // If loading the page for the first time, populate the FoodLog grid
                 GetFoodLog();
-                GetActLog();
+                //GetActLog();
             }
         }
         protected void GetFoodLog()
         {
             try
             {
-
+                Session["SortColumn"] = "FoodLogID";
                 // Connect to EF
                 using (fit_trackEntities db = new fit_trackEntities())
                 {
@@ -41,10 +41,9 @@ namespace fitness_weight_tracker.users
                     String sortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
                     // Query the Courses table, using the Enity Framework
                     var FoodLog = (from fl in db.FoodLogs
-                                  join f in db.Foods on fl.FoodID equals f.FoodID
                                   join u in db.AspNetUsers on fl.UserID equals u.Id
-                                  //where fl.UserID == userID
-                                  select new { fl.FoodLogID, f.FoodID, f.FoodName, fl.Meal, fl.FoodDate });
+                                  where fl.UserID == userID
+                                  select new { fl.FoodLogID,  fl.FoodName, fl.Meal, fl.FoodDate });
 
 
                     grdFoodLog.DataSource = FoodLog.AsQueryable().OrderBy(sortString).ToList();
@@ -57,22 +56,22 @@ namespace fitness_weight_tracker.users
             }
         }
 
-        protected void GetActLog()
+        /**protected void GetActLog()
         {
             try
             {
-
+                Session["SortColumn"] = "ActLogID";
                 // Connect to EF
                 using (fit_trackEntities db = new fit_trackEntities())
                 {
-
+                    String userID = Convert.ToString(User.Identity.GetUserId());
                     String sortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
                     // Query the Courses table, using the Enity Framework
-                    var ActLog = from fl in db.FoodLogs
-                                  join f in db.Foods on fl.FoodID equals f.FoodID
-                                  join u in db.AspNetUsers on fl.UserID equals u.Id
-                                  where fl.UserID == User.Identity.GetUserId()
-                                  select new { fl.FoodLogID, f.FoodName };
+                    var ActLog = from al in db.ActivityLogs
+                                  join ac in db.Activities on al.ActID equals ac.ActID
+                                  join u in db.AspNetUsers on al.UserID equals u.Id
+                                  where al.UserID == userID
+                                  select new { al.ActLogID, ac.ActID, ac.ActName, ac.ActType, ac.ActDuration, ac.ActWeight, ac.ActReps, al.ActDate };
 
 
                     grdFoodLog.DataSource = ActLog.AsQueryable().OrderBy(sortString).ToList();
@@ -83,7 +82,7 @@ namespace fitness_weight_tracker.users
             {
                 Response.Redirect("/error.aspx");
             }
-        }
+        }**/
 
         protected void grdFoodLog_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {

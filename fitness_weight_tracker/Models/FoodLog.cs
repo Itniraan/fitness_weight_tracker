@@ -16,11 +16,17 @@ namespace fitness_weight_tracker.Models
     {
         public int FoodLogID { get; set; }
         public string UserID { get; set; }
-        public int FoodID { get; set; }
         public string Meal { get; set; }
         public System.DateTime FoodDate { get; set; }
+        public string FoodName { get; set; }
+        public Nullable<int> Calories { get; set; }
+        public string FoodGroup { get; set; }
+        public int MealServingSize { get; set; }
+        public Nullable<int> Carbs { get; set; }
+        public Nullable<int> TotalFat { get; set; }
+        public Nullable<int> Protein { get; set; }
+        public Nullable<int> Sodium { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Food Food { get; set; }
     }
 }
