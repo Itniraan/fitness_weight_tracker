@@ -14,6 +14,14 @@
     
     <asp:Panel ID="pnlFoodLog" runat="server" Visible="false">
         <h1>Food Log for: <asp:Label ID="lblFoodName" runat="server"></asp:Label></h1>
+        <div>
+            <strong>Records Per Page: </strong>
+            <asp:DropDownList ID="ddlFoodPageSize" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlFoodPageSize_SelectedIndexChanged">
+                <asp:ListItem Value="3" Text="3" />
+                <asp:ListItem Value="5" Text="5" />
+                <asp:ListItem Value="10" Text="10" />
+            </asp:DropDownList>
+        </div>
         <asp:GridView ID="grdFoodLog" runat="server" AllowPaging="true" PageSize="5" AllowSorting="true" AutoGenerateColumns="false" 
             OnRowDeleting="grdFoodLog_RowDeleting" OnPageIndexChanging="grdFoodLog_PageIndexChanging" OnSorting="grdFoodLog_Sorting" 
             OnRowDataBound="grdFoodLog_RowDataBound" DataKeyNames="FoodLogID" CssClass="table table-striped table-hover">
@@ -35,6 +43,14 @@
     </asp:Panel>
     <asp:Panel ID="pnlActLog" runat="server" Visible="false">
         <h1>Activity Log for: <asp:Label ID="lblActName" runat="server"></asp:Label></h1>
+        <div>
+            <strong>Records Per Page: </strong>
+            <asp:DropDownList ID="ddlActPageSize" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlActPageSize_SelectedIndexChanged">
+                <asp:ListItem Value="3" Text="3" />
+                <asp:ListItem Value="5" Text="5" />
+                <asp:ListItem Value="10" Text="10" />
+            </asp:DropDownList>
+        </div>
         <asp:GridView ID="grdActLog" runat="server" AllowPaging="true" PageSize="5" AllowSorting="true" AutoGenerateColumns="false" 
             OnRowDeleting="grdActLog_RowDeleting" OnPageIndexChanging="grdActLog_PageIndexChanging" OnSorting="grdActLog_Sorting" 
             OnRowDataBound="grdActLog_RowDataBound" DataKeyNames="ActLogID" CssClass="table table-striped table-hover">

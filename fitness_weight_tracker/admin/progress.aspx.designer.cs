@@ -58,6 +58,15 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.Label lblFoodName;
         
         /// <summary>
+        /// ddlFoodPageSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFoodPageSize;
+        
+        /// <summary>
         /// grdFoodLog control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace fitness_weight_tracker.users {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblActName;
+        
+        /// <summary>
+        /// ddlActPageSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlActPageSize;
         
         /// <summary>
         /// grdActLog control.

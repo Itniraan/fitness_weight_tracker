@@ -279,5 +279,19 @@ namespace fitness_weight_tracker.users
                 }
             }
         }
+
+        protected void ddlFoodPageSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Set new page size
+            grdFoodLog.PageSize = Convert.ToInt32(ddlFoodPageSize.SelectedValue);
+            GetFoodLog();
+        }
+
+        protected void ddlActPageSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Set new page size
+            grdActLog.PageSize = Convert.ToInt32(ddlActPageSize.SelectedValue);
+            GetActLog();
+        }
     }
 }
