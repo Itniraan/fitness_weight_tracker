@@ -210,7 +210,7 @@ namespace fitness_weight_tracker.users
             Int32 selectedRow = e.RowIndex;
 
             // Get the selected ActLogID using the grid's Data Key collection
-            Int32 ActID = Convert.ToInt32(grdFoodLog.DataKeys[selectedRow].Values["ActLogID"]);
+            Int32 ActID = Convert.ToInt32(grdActLog.DataKeys[selectedRow].Values["ActLogID"]);
 
             try
             {

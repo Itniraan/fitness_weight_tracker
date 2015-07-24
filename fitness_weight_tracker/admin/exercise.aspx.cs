@@ -16,7 +16,57 @@ namespace fitness_weight_tracker.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // If save wasn't clicked AND we have a StudentID in the URL
+            if ((!IsPostBack) && (Request.QueryString.Count > 0))
+            {
+                GetAct();
+            }
+        }
 
+        protected void GetAct()
+        {
+            // Populate form with existing student record
+            Int32 ActID = Convert.ToInt32(Request.QueryString["ActLogID"]);
+
+            try
+            {
+                using (fit_trackEntities db = new fit_trackEntities())
+                {
+                    ActivityLog al = (from objS in db.ActivityLogs
+                                 where objS.ActLogID == ActID
+                                 select objS).FirstOrDefault();
+
+                    if (al != null)
+                    {
+                        txtName.Text = al.ActName;
+                        txtDuration.Text = Convert.ToString(al.ActDuration);
+                        txtDistance.Text = Convert.ToString(al.ActDistance);
+                        txtReps.Text = Convert.ToString(al.ActReps);
+                        txtWeight.Text = Convert.ToString(al.ActWeight);
+                        ddlExercise.SelectedValue = al.ActType;
+                        if (ddlExercise.SelectedValue == "Cardio")
+                        {
+                            pnlCardio.Visible = true;
+                            pnlMuscles.Visible = false;
+                            pnlName.Visible = true;
+                            pnlButton.Visible = true;
+                        }
+                        else if (ddlExercise.SelectedValue == "Weight Lifting")
+                        {
+                            pnlCardio.Visible = false;
+                            pnlMuscles.Visible = true;
+                            pnlName.Visible = true;
+                            pnlButton.Visible = true;
+
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("/error.aspx");
+            }
         }
 
         protected void ddlExercise_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,8 +103,22 @@ namespace fitness_weight_tracker.admin
                 using (fit_trackEntities db = new fit_trackEntities())
                 {
                     ActivityLog d = new ActivityLog();
+                    Int32 ActLogID = 0;
 
                     String userID = Convert.ToString(User.Identity.GetUserId());
+
+                    if (Request.QueryString["ActLogID"] != null)
+                    {
+                        // Get the ID from the URL
+                        ActLogID = Convert.ToInt32(Request.QueryString["ActLogID"]);
+
+                        // Get the current ActLog from the Enity Framework
+                        d = (from objS in db.ActivityLogs
+                             where objS.ActLogID == ActLogID
+                             select objS).FirstOrDefault();
+
+                    }
+
                     d.UserID = userID;
                     d.ActName = txtName.Text;
                     d.ActType = ddlExercise.SelectedValue;
@@ -73,8 +137,10 @@ namespace fitness_weight_tracker.admin
                         d.ActDate = DateTime.Now;
                     }
 
-
-                    db.ActivityLogs.Add(d);
+                    if (ActLogID == 0)
+                    {
+                        db.ActivityLogs.Add(d);
+                    }
                     db.SaveChanges();
                     Response.Redirect("/admin/main-menu.aspx", false);
                 }
