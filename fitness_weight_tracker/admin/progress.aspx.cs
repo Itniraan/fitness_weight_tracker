@@ -26,8 +26,8 @@ namespace fitness_weight_tracker.users
                 //Session["SortColumn"] = "FoodLogID";
                 Session["SortDirection"] = "ASC";
                 // If loading the page for the first time, populate the FoodLog an ActLog grids
-                
-                
+
+
             }
             if (ddlChoice.SelectedValue == "FoodLog")
             {
@@ -53,7 +53,7 @@ namespace fitness_weight_tracker.users
         {
             try
             {
-                
+
                 // Connect to EF
                 using (fit_trackEntities db = new fit_trackEntities())
                 {
@@ -61,10 +61,22 @@ namespace fitness_weight_tracker.users
                     String sortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
                     // Query the FoodLog table, using the Enity Framework
                     var FoodLog = (from fl in db.FoodLogs
-                                  join u in db.AspNetUsers on fl.UserID equals u.Id
-                                  where fl.UserID == userID
-                                  select new { fl.FoodLogID,  fl.FoodName, fl.Meal, fl.Calories, fl.FoodGroup, fl.MealServingSize, 
-                                      fl.Carbs, fl.TotalFat, fl.Protein, fl.Sodium, fl.FoodDate });
+                                   join u in db.AspNetUsers on fl.UserID equals u.Id
+                                   where fl.UserID == userID
+                                   select new
+                                   {
+                                       fl.FoodLogID,
+                                       fl.FoodName,
+                                       fl.Meal,
+                                       fl.Calories,
+                                       fl.FoodGroup,
+                                       fl.MealServingSize,
+                                       fl.Carbs,
+                                       fl.TotalFat,
+                                       fl.Protein,
+                                       fl.Sodium,
+                                       fl.FoodDate
+                                   });
 
 
                     grdFoodLog.DataSource = FoodLog.AsQueryable().OrderBy(sortString).ToList();
@@ -81,7 +93,7 @@ namespace fitness_weight_tracker.users
         {
             try
             {
-                
+
                 // Connect to EF
                 using (fit_trackEntities db = new fit_trackEntities())
                 {
@@ -89,9 +101,9 @@ namespace fitness_weight_tracker.users
                     String sortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
                     // Query the ActivityLog table, using the Enity Framework
                     var ActLog = from al in db.ActivityLogs
-                                  join u in db.AspNetUsers on al.UserID equals u.Id
-                                  where al.UserID == userID
-                                  select new { al.ActLogID, al.ActName, al.ActType, al.ActDuration, al.ActWeight, al.ActReps, al.ActDate };
+                                 join u in db.AspNetUsers on al.UserID equals u.Id
+                                 where al.UserID == userID
+                                 select new { al.ActLogID, al.ActName, al.ActType, al.ActDuration, al.ActWeight, al.ActReps, al.ActDate };
 
 
                     grdActLog.DataSource = ActLog.AsQueryable().OrderBy(sortString).ToList();
@@ -118,8 +130,8 @@ namespace fitness_weight_tracker.users
                 using (fit_trackEntities db = new fit_trackEntities())
                 {
                     FoodLog fl = (from objF in db.FoodLogs
-                                 where objF.FoodLogID == FoodID
-                                 select objF).FirstOrDefault(); // Using First would get an error if no data comes back, FirstOrDefault won't throw an error
+                                  where objF.FoodLogID == FoodID
+                                  select objF).FirstOrDefault(); // Using First would get an error if no data comes back, FirstOrDefault won't throw an error
 
                     // Do the delete
                     db.FoodLogs.Remove(fl);
@@ -206,8 +218,8 @@ namespace fitness_weight_tracker.users
                 using (fit_trackEntities db = new fit_trackEntities())
                 {
                     ActivityLog al = (from objA in db.ActivityLogs
-                                  where objA.ActLogID == ActID
-                                  select objA).FirstOrDefault(); // Using First would get an error if no data comes back, FirstOrDefault won't throw an error
+                                      where objA.ActLogID == ActID
+                                      select objA).FirstOrDefault(); // Using First would get an error if no data comes back, FirstOrDefault won't throw an error
 
                     // Do the delete
                     db.ActivityLogs.Remove(al);

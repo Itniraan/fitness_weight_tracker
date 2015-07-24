@@ -31,11 +31,11 @@
                 </asp:PlaceHolder>
                 <asp:PlaceHolder ID="plhPrivate" runat="server">
                     <li><a href="/admin/main-menu.aspx"><span class="glyphicon glyphicon-list-alt"></span>  Menu</a></li>
-                    <li><a href="/admin/food.aspx"><span class="glyphicon glyphicon-cutlery"></span>  Food</a></li>
+                    <li><a href="/admin/addFood.aspx"><span class="glyphicon glyphicon-cutlery"></span>  Food</a></li>
                     <li><a href="/admin/exercise.aspx"><span class="glyphicon glyphicon-heart-empty"></span> Exercise</a></li>
-                    <li><a href="/admin/goal.aspx"><span class="glyphicon glyphicon-star-empty"></span> Set Goal</a></li>
+                   <!-- <li><a href="/admin/goal.aspx"><span class="glyphicon glyphicon-star-empty"></span> Set Goal</a></li> -->
                     <li><a href="/admin/progress.aspx"><span class="glyphicon glyphicon-signal"></span> View Progress</a></li>
-                    <li><a href="/admin/profile.aspx"><span class="glyphicon glyphicon-cog"></span> Edit Profile</a></li>
+                    <li><a href="/admin/profile.aspx"><span class="glyphicon glyphicon-cog"></span>Profile</a></li>
                     <li><a href="/logout.aspx"><span class="glyphicon glyphicon-off"></span>  Logout</a></li>
                 </asp:PlaceHolder>
             </ul>

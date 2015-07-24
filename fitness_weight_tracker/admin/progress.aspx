@@ -3,15 +3,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <h1>Progress</h1>
+    <div class="container center_div">
     <asp:Panel ID="pnlChoice" runat="server" Visible="true">
-        <asp:Label runat="server" ID="lblChoice" Text="Would you like to see your food or activity logs?" />
-        <asp:DropDownList ID="ddlChoice" runat="server" AutoPostBack="true">
-            <asp:ListItem Value="default" Text="------"></asp:ListItem>
+        <label for="ddlChoiceText">Select Type of Log to View:</label>
+        <asp:DropDownList ID="ddlChoice" CssClass="form-control" runat="server" AutoPostBack="true">
+            <asp:ListItem Value="default" Text="Select Log"></asp:ListItem>
             <asp:ListItem Value="FoodLog" Text="Food Log"></asp:ListItem>
             <asp:ListItem Value="ActLog" Text="Activity Log"></asp:ListItem>
         </asp:DropDownList>
     </asp:Panel>
-    
+    </div>
     <asp:Panel ID="pnlFoodLog" runat="server" Visible="false">
         <h1>Food Log for: <asp:Label ID="lblFoodName" runat="server"></asp:Label></h1>
         <div>
@@ -45,12 +47,13 @@
         <h1>Activity Log for: <asp:Label ID="lblActName" runat="server"></asp:Label></h1>
         <div>
             <strong>Records Per Page: </strong>
-            <asp:DropDownList ID="ddlActPageSize" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlActPageSize_SelectedIndexChanged">
+            <asp:DropDownList  ID="ddlActPageSize" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlActPageSize_SelectedIndexChanged">
                 <asp:ListItem Value="3" Text="3" />
                 <asp:ListItem Value="5" Text="5" />
                 <asp:ListItem Value="10" Text="10" />
             </asp:DropDownList>
         </div>
+         
         <asp:GridView ID="grdActLog" runat="server" AllowPaging="true" PageSize="5" AllowSorting="true" AutoGenerateColumns="false" 
             OnRowDeleting="grdActLog_RowDeleting" OnPageIndexChanging="grdActLog_PageIndexChanging" OnSorting="grdActLog_Sorting" 
             OnRowDataBound="grdActLog_RowDataBound" DataKeyNames="ActLogID" CssClass="table table-striped table-hover">
@@ -67,5 +70,6 @@
             </Columns>
         </asp:GridView>
     </asp:Panel>
+      
 
 </asp:Content>

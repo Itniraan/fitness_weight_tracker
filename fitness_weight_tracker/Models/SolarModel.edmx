@@ -27,7 +27,7 @@
           <Property Name="ActDistance" Type="decimal" Precision="4" Scale="1" />
           <Property Name="ActWeight" Type="int" />
           <Property Name="ActReps" Type="int" />
-          <Property Name="ActDate" Type="date" />
+          <Property Name="ActDate" Type="datetime" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -103,9 +103,9 @@
           </Key>
           <Property Name="ProfileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="UserWeight" Type="decimal" Precision="4" Scale="1" />
           <Property Name="UserHeight" Type="decimal" Precision="4" Scale="1" />
           <Property Name="Age" Type="int" />
@@ -392,9 +392,9 @@ warning 6002: The table/view 'fit_track.sys.database_firewall_rules' does not ha
           </Key>
           <Property Name="ProfileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UserWeight" Type="Decimal" Precision="4" Scale="1" />
           <Property Name="UserHeight" Type="Decimal" Precision="4" Scale="1" />
           <Property Name="Age" Type="Int32" />
@@ -486,7 +486,7 @@ warning 6002: The table/view 'fit_track.sys.database_firewall_rules' does not ha
           <Property Name="ActDistance" Type="Decimal" Precision="4" Scale="1" />
           <Property Name="ActWeight" Type="Int32" />
           <Property Name="ActReps" Type="Int32" />
-          <Property Name="ActDate" Type="DateTime" Precision="0" />
+          <Property Name="ActDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="AspNetUser" Relationship="fit_trackModel.FK__ActivityL__UserI__5CD6CB2B" FromRole="ActivityLog" ToRole="AspNetUser" />
         </EntityType>
         <Association Name="FK__ActivityL__UserI__5CD6CB2B">

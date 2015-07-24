@@ -23,3 +23,7 @@ div.nav a:hover {
     background-color:#18537e;
 }
 
+.center_div {
+    margin: 0 auto;
+    width:30%
+}

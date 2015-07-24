@@ -10,6 +10,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 
+using fitness_weight_tracker.Models;
+using System.Web.ModelBinding;
+
 
 namespace fitness_weight_tracker
 {

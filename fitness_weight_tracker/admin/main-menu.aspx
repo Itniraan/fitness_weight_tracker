@@ -2,4 +2,33 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1>Menu</h1>
+    <div class="well">
+        <h3>Food</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="addFood.aspx">Add Food</a></li>
+        </ul>
+    </div> 
+    <div class="well">
+        <h3>Exercise</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="exercise.aspx">Add Excercise</a></li>
+        </ul>
+    </div>
+    <div class="well">
+        <h3>Progress</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="progress.aspx">View Logs</a></li>
+        </ul>
+    </div>
+    <div class="well">
+        <h3>Profile</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="profile.aspx">View Profile</a></li>
+            <li class="list-group-item"><a href="editprofile.aspx">Edit Profile</a></li>
+
+
+        </ul>
+    </div>
+
 </asp:Content>

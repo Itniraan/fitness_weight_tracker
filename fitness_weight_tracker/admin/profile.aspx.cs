@@ -29,12 +29,22 @@ namespace fitness_weight_tracker.users
                            where up.UserID == userID 
                            select up).FirstOrDefault();
 
-                lblFirstName.Text = userP.FirstName;
-                lblLastName.Text = userP.LastName;
-                lblEmail.Text = userP.Email;
-                lblUserHeight.Text = Convert.ToString(userP.UserHeight);
-                lblUserWeight.Text = Convert.ToString(userP.UserWeight);
-                lblAge.Text = Convert.ToString(userP.Age);
+                if (userP != null) {
+                    lblFirstName.Text = userP.FirstName;
+                    lblLastName.Text = userP.LastName;
+                    lblEmail.Text = userP.Email;
+                    lblUserHeight.Text = Convert.ToString(userP.UserHeight);
+                    lblUserWeight.Text = Convert.ToString(userP.UserWeight);
+                    lblAge.Text = Convert.ToString(userP.Age);
+                } 
+                else 
+                {
+                userP = new UserProfile();
+                userP.UserID = userID;
+                db.UserProfiles.Add(userP);
+                db.SaveChanges();
+                }
+                
             }
         }
 
