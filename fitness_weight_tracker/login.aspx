@@ -20,6 +20,6 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Password is required." ControlToValidate="txtPassword" CssClass="label label-danger" Display="Dynamic"></asp:RequiredFieldValidator>
     </div>
     <div>
-        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-primary" OnClick="btnLogin_Click" />
+        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-default col-sm-offset-2" OnClick="btnLogin_Click" />
     </div>
 </asp:Content>

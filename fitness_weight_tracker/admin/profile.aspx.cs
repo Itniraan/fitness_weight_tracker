@@ -22,29 +22,30 @@ namespace fitness_weight_tracker.users
             String userID = Convert.ToString(User.Identity.GetUserId());
             lblUsername.Text = userName;
             UserProfile userP = new UserProfile();
-            using (fit_trackEntities db = new fit_trackEntities()) 
+            using (fit_trackEntities db = new fit_trackEntities())
             {
                 userP = (from up in db.UserProfiles
-                           join u in db.AspNetUsers on up.UserID equals u.Id
-                           where up.UserID == userID 
-                           select up).FirstOrDefault();
+                         join u in db.AspNetUsers on up.UserID equals u.Id
+                         where up.UserID == userID
+                         select up).FirstOrDefault();
 
-                if (userP != null) {
+                if (userP != null)
+                {
                     lblFirstName.Text = userP.FirstName;
                     lblLastName.Text = userP.LastName;
                     lblEmail.Text = userP.Email;
                     lblUserHeight.Text = Convert.ToString(userP.UserHeight);
                     lblUserWeight.Text = Convert.ToString(userP.UserWeight);
                     lblAge.Text = Convert.ToString(userP.Age);
-                } 
-                else 
-                {
-                userP = new UserProfile();
-                userP.UserID = userID;
-                db.UserProfiles.Add(userP);
-                db.SaveChanges();
                 }
-                
+                else
+                {
+                    userP = new UserProfile();
+                    userP.UserID = userID;
+                    db.UserProfiles.Add(userP);
+                    db.SaveChanges();
+                }
+
             }
         }
 

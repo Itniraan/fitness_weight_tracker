@@ -27,6 +27,6 @@
         <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Password and Confirm Password must match" ControlToValidate="txtPasswordConfirm" ControlToCompare="txtPassword" Display="Dynamic" CssClass="label label-danger"></asp:CompareValidator>
     </div>
     <div>
-        <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-primary" OnClick="btnRegister_Click" />
+        <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-default col-sm-offset-2" OnClick="btnRegister_Click" />
     </div>
 </asp:Content>

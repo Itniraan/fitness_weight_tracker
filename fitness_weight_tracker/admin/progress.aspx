@@ -4,21 +4,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <h1>Progress</h1>
-    <div class="container center_div">
     <asp:Panel ID="pnlChoice" runat="server" Visible="true">
-        <label for="ddlChoiceText">Select Type of Log to View:</label>
-        <asp:DropDownList ID="ddlChoice" CssClass="form-control" runat="server" AutoPostBack="true">
+        <label for="ddlChoiceText">Type of Log:</label>
+        <asp:DropDownList ID="ddlChoice" CssClass="form-control-static" runat="server" AutoPostBack="true">
             <asp:ListItem Value="default" Text="Select Log"></asp:ListItem>
             <asp:ListItem Value="FoodLog" Text="Food Log"></asp:ListItem>
             <asp:ListItem Value="ActLog" Text="Activity Log"></asp:ListItem>
         </asp:DropDownList>
     </asp:Panel>
-    </div>
+
     <asp:Panel ID="pnlFoodLog" runat="server" Visible="false">
         <h1>Food Log for: <asp:Label ID="lblFoodName" runat="server"></asp:Label></h1>
         <div>
-            <strong>Records Per Page: </strong>
-            <asp:DropDownList ID="ddlFoodPageSize" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlFoodPageSize_SelectedIndexChanged">
+            <label>Records Per Page: </label>
+            <asp:DropDownList ID="ddlFoodPageSize" runat="server" CssClass="form-control-static" AutoPostBack="true" OnSelectedIndexChanged="ddlFoodPageSize_SelectedIndexChanged">
                 <asp:ListItem Value="3" Text="3" />
                 <asp:ListItem Value="5" Text="5" />
                 <asp:ListItem Value="10" Text="10" />
@@ -46,8 +45,8 @@
     <asp:Panel ID="pnlActLog" runat="server" Visible="false">
         <h1>Activity Log for: <asp:Label ID="lblActName" runat="server"></asp:Label></h1>
         <div>
-            <strong>Records Per Page: </strong>
-            <asp:DropDownList  ID="ddlActPageSize" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlActPageSize_SelectedIndexChanged">
+            <label>Records Per Page: </label>
+            <asp:DropDownList  ID="ddlActPageSize" CssClass="form-control-static" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlActPageSize_SelectedIndexChanged">
                 <asp:ListItem Value="3" Text="3" />
                 <asp:ListItem Value="5" Text="5" />
                 <asp:ListItem Value="10" Text="10" />
@@ -62,6 +61,7 @@
                 <asp:BoundField DataField="ActName" HeaderText="Activity Name" SortExpression="ActName" />
                 <asp:BoundField DataField="ActType" HeaderText="Activity Type" SortExpression="ActType" />
                 <asp:BoundField DataField="ActDuration" HeaderText="Activity Duration" SortExpression="ActDuration" />
+                <asp:BoundField DataField="ActDistance" HeaderText="Activity Distance (Km)" SortExpression="ActDistance" />
                 <asp:BoundField DataField="ActWeight" HeaderText="Activity Weight" SortExpression="ActWeight" />
                 <asp:BoundField DataField="ActReps" HeaderText="Activity Repetitions" SortExpression="ActReps" />
                 <asp:BoundField DataField="ActDate" HeaderText="Date Entered" SortExpression="ActDate" />

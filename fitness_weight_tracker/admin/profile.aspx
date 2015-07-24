@@ -3,25 +3,26 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>User Details for: <asp:Label ID="lblUsername" runat="server" /></h1>
-    <div>
-        First Name: <asp:Label ID="lblFirstName" runat="server" />
+    <asp:Label runat="server" ID="lblError" CssClass="label label-info"></asp:Label>
+     <div>
+        <label>First Name:</label> <asp:Label ID="lblFirstName" runat="server" />
     </div>
     <div>
-        Last Name: <asp:Label ID="lblLastName" runat="server" />
+        <label>Last Name:</label> <asp:Label ID="lblLastName" runat="server" />
     </div>
     <div>
-        Email: <asp:Label ID="lblEmail" runat="server" />
+        <label>Email:</label> <asp:Label ID="lblEmail" runat="server" />
     </div>
     <div>
-        Height: <asp:Label ID="lblUserHeight" runat="server" />
+        <label>Height:</label> <asp:Label ID="lblUserHeight" runat="server" /><label class="text-left small">cm</label>
     </div>
     <div>
-        Weight: <asp:Label ID="lblUserWeight" runat="server" />
+        <label>Weight:</label> <asp:Label ID="lblUserWeight" runat="server" /><label class="text-left small">lbs</label>
     </div>
     <div>
-        Age: <asp:Label ID="lblAge" runat="server" />
+        <label>Age:</label> <asp:Label ID="lblAge" runat="server" /><label class="text-left small">yrs</label>
     </div>
     <div>
-        <a href="editProfile.aspx">Edit Profile</a>
+       <a href="editProfile.aspx" class="btn btn-default col-sm-offset-1">Edit Profile</a>
     </div>
 </asp:Content>
