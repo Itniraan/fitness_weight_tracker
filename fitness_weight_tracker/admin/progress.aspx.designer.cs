@@ -13,6 +13,33 @@ namespace fitness_weight_tracker.users {
     public partial class food {
         
         /// <summary>
+        /// pnlChoice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlChoice;
+        
+        /// <summary>
+        /// lblChoice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChoice;
+        
+        /// <summary>
+        /// ddlChoice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlChoice;
+        
+        /// <summary>
         /// pnlFoodLog control.
         /// </summary>
         /// <remarks>
@@ -22,13 +49,13 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.Panel pnlFoodLog;
         
         /// <summary>
-        /// lblName control.
+        /// lblFoodName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.WebControls.Label lblFoodName;
         
         /// <summary>
         /// grdFoodLog control.
@@ -49,13 +76,13 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.Panel pnlActLog;
         
         /// <summary>
-        /// Label1 control.
+        /// lblActName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblActName;
         
         /// <summary>
         /// grdActLog control.

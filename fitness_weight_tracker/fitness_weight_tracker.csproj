@@ -148,6 +148,8 @@
     <Content Include="css.css" />
     <Content Include="default.aspx" />
     <Content Include="error.aspx" />
+    <Content Include="images\asc.jpg" />
+    <Content Include="images\desc.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="login.aspx" />
     <Content Include="logout.aspx" />
@@ -238,9 +240,6 @@
     </Compile>
     <Compile Include="logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Activity.cs">
-      <DependentUpon>SolarModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ActivityLog.cs">
       <DependentUpon>SolarModel.tt</DependentUpon>

@@ -33,7 +33,6 @@ namespace fitness_weight_tracker.Models
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<UserProfile> UserProfiles { get; set; }
         public virtual DbSet<FoodLog> FoodLogs { get; set; }
-        public virtual DbSet<Activity> Activities { get; set; }
         public virtual DbSet<ActivityLog> ActivityLogs { get; set; }
     }
 }

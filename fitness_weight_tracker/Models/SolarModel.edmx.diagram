@@ -15,12 +15,10 @@
         <AssociationConnector Association="fit_trackModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="fit_trackModel.FK__UserProfi__UserI__48CFD27E" />
         <AssociationConnector Association="fit_trackModel.AspNetUserRoles" />
-        <EntityTypeShape EntityType="fit_trackModel.FoodLog" Width="1.5" PointX="11.25" PointY="5.25" />
+        <EntityTypeShape EntityType="fit_trackModel.FoodLog" Width="1.5" PointX="13.375" PointY="4.875" />
         <AssociationConnector Association="fit_trackModel.FK__FoodLog__UserID__4D94879B" />
-        <EntityTypeShape EntityType="fit_trackModel.Activity" Width="1.5" PointX="9" PointY="10.125" />
-        <EntityTypeShape EntityType="fit_trackModel.ActivityLog" Width="1.5" PointX="11.25" PointY="2.25" />
-        <AssociationConnector Association="fit_trackModel.FK__ActivityL__ActID__5441852A" />
-        <AssociationConnector Association="fit_trackModel.FK__ActivityL__UserI__534D60F1" />
+        <EntityTypeShape EntityType="fit_trackModel.ActivityLog" Width="1.5" PointX="8.25" PointY="10.875" />
+        <AssociationConnector Association="fit_trackModel.FK__ActivityL__UserI__5CD6CB2B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
