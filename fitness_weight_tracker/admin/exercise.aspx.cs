@@ -16,7 +16,7 @@ namespace fitness_weight_tracker.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // If save wasn't clicked AND we have a StudentID in the URL
+            // If save wasn't clicked AND we have a ActLogID in the URL
             if ((!IsPostBack) && (Request.QueryString.Count > 0))
             {
                 GetAct();

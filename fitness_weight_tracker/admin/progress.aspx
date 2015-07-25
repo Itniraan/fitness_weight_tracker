@@ -37,7 +37,7 @@
                 <asp:BoundField DataField="Protein" HeaderText="Protein" SortExpression="Protein" />
                 <asp:BoundField DataField="Sodium" HeaderText="Sodium" SortExpression="Sodium" />
                 <asp:BoundField DataField="FoodDate" HeaderText="Date Entered" SortExpression="FoodDate" />
-                <asp:HyperLinkField HeaderText="Edit" Text="Edit" NavigateUrl="~/food.aspx" DataNavigateUrlFields="FoodLogID" DataNavigateUrlFormatString="food.aspx?FoodLogID={0}" />
+                <asp:HyperLinkField HeaderText="Edit" Text="Edit" NavigateUrl="~/food.aspx" DataNavigateUrlFields="FoodLogID" DataNavigateUrlFormatString="addFood.aspx?FoodLogID={0}" />
                 <asp:CommandField HeaderText="Delete" DeleteText="Delete" ShowDeleteButton="true" />
             </Columns>
         </asp:GridView>

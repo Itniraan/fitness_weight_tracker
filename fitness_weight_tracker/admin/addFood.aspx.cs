@@ -16,8 +16,82 @@ namespace fitness_weight_tracker.users
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // If save wasn't clicked AND we have a ActLogID in the URL
+            if ((!IsPostBack) && (Request.QueryString.Count > 0))
+            {
+                GetFoodLog();
+            }
         }
+
+        protected void GetFoodLog()
+        {
+            // Populate form with existing student record
+            Int32 FoodID = Convert.ToInt32(Request.QueryString["FoodLogID"]);
+
+            try
+            {
+                using (fit_trackEntities db = new fit_trackEntities())
+                {
+                    FoodLog fl = (from objS in db.FoodLogs
+                                      where objS.FoodLogID == FoodID
+                                      select objS).FirstOrDefault();
+
+                    if (fl != null)
+                    {
+                        txtFoodName.Text = fl.FoodName;
+                        txtCalories.Text = Convert.ToString(fl.Calories);
+                        ddlFoodGroup.SelectedValue = fl.FoodGroup;
+                        txtServings.Text = Convert.ToString(fl.MealServingSize);
+                        txtCarbs.Text = Convert.ToString(fl.Carbs);
+                        txtSodium.Text = Convert.ToString(fl.Sodium);
+                        txtFat.Text = Convert.ToString(fl.TotalFat);
+                        txtProtein.Text = Convert.ToString(fl.Protein);
+                        ddlMeals.SelectedValue = fl.Meal;
+                        if (ddlMeals.SelectedValue == "breakfast")
+                        {
+                            pnlBreakfast.Visible = true;
+                            pnlDinner.Visible = false;
+                            pnlLunch.Visible = false;
+                            pnlSnack.Visible = false;
+                            pnlFoodForm.Visible = true;
+
+                        }
+                        else if (ddlMeals.SelectedValue == "lunch")
+                        {
+                            pnlBreakfast.Visible = false;
+                            pnlDinner.Visible = false;
+                            pnlLunch.Visible = true;
+                            pnlSnack.Visible = false;
+                            pnlFoodForm.Visible = true;
+
+                        }
+                        else if (ddlMeals.SelectedValue == "dinner")
+                        {
+                            pnlBreakfast.Visible = false;
+                            pnlDinner.Visible = true;
+                            pnlLunch.Visible = false;
+                            pnlSnack.Visible = false;
+                            pnlFoodForm.Visible = true;
+                        }
+                        else if (ddlMeals.SelectedValue == "snack")
+                        {
+                            pnlBreakfast.Visible = false;
+                            pnlDinner.Visible = false;
+                            pnlLunch.Visible = false;
+                            pnlSnack.Visible = true;
+                            pnlFoodForm.Visible = true;
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("/error.aspx");
+            }
+        }
+
+
         protected void ddlMeals_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlMeals.SelectedValue == "breakfast")
@@ -71,8 +145,22 @@ namespace fitness_weight_tracker.users
                 using (fit_trackEntities db = new fit_trackEntities())
                 {
                     FoodLog d = new FoodLog();
+                    Int32 FoodLogID = 0;
 
                     String userID = Convert.ToString(User.Identity.GetUserId());
+
+                    if (Request.QueryString["FoodLogID"] != null)
+                    {
+                        // Get the ID from the URL
+                        FoodLogID = Convert.ToInt32(Request.QueryString["FoodLogID"]);
+
+                        // Get the current ActLog from the Enity Framework
+                        d = (from objS in db.FoodLogs
+                             where objS.FoodLogID == FoodLogID
+                             select objS).FirstOrDefault();
+
+                    }
+
                     d.UserID = userID;
                     d.Meal = ddlMeals.SelectedValue;
                     d.FoodName = txtFoodName.Text;
@@ -84,7 +172,11 @@ namespace fitness_weight_tracker.users
                     d.TotalFat = Convert.ToInt32(txtFat.Text);
                     d.Sodium = Convert.ToInt32(txtSodium.Text);
                     d.FoodDate = DateTime.Now;
-                    db.FoodLogs.Add(d);
+
+                    if (FoodLogID == 0)
+                    {
+                        db.FoodLogs.Add(d);
+                    }
                     db.SaveChanges();
                     Response.Redirect("/admin/main-menu.aspx", false);
                 }

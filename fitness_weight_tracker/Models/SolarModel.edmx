@@ -87,7 +87,7 @@
           <Property Name="FoodLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Meal" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="FoodDate" Type="date" Nullable="false" />
+          <Property Name="FoodDate" Type="datetime" />
           <Property Name="FoodName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Calories" Type="int" />
           <Property Name="FoodGroup" Type="varchar" MaxLength="50" Nullable="false" />
@@ -451,7 +451,7 @@ warning 6002: The table/view 'fit_track.sys.database_firewall_rules' does not ha
           <Property Name="FoodLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Meal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FoodDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FoodDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="AspNetUser" Relationship="fit_trackModel.FK__FoodLog__UserID__4D94879B" FromRole="FoodLog" ToRole="AspNetUser" />
           <Property Name="FoodName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Calories" Type="Int32" />

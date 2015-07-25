@@ -17,7 +17,7 @@ namespace fitness_weight_tracker.Models
         public int FoodLogID { get; set; }
         public string UserID { get; set; }
         public string Meal { get; set; }
-        public System.DateTime FoodDate { get; set; }
+        public Nullable<System.DateTime> FoodDate { get; set; }
         public string FoodName { get; set; }
         public Nullable<int> Calories { get; set; }
         public string FoodGroup { get; set; }
