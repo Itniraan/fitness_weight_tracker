@@ -1,14 +1,13 @@
 ﻿<%@ Page Title="Solar Fitness | Edit Profile" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="editProfile.aspx.cs" Inherits="fitness_weight_tracker.users.editProfile" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--
     Page Name: editProfile.aspx
     Authors: Emily and Blake
     Description: Page to edit users profile information. 
      -->
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Edit User Details for: <asp:Label ID="lblUsername" runat="server" /></h1>
 
     <div>
@@ -43,4 +42,5 @@
     </div>
     <div>
         <asp:Button ID="btnSave" runat="server" CssClass="btn btn-default col-sm-offset-2" Text="Save Profile" OnClick="btnSave_Click" />
-    </div></asp:Content>
+    </div>
+</asp:Content>
