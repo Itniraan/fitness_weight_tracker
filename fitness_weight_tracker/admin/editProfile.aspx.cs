@@ -18,6 +18,7 @@ namespace fitness_weight_tracker.users
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Get the UserName
             lblUsername.Text = Convert.ToString(User.Identity.GetUserName());
             // If save wasn't clicked AND we have a StudentID in the URL
             if ((!IsPostBack))
@@ -28,7 +29,7 @@ namespace fitness_weight_tracker.users
 
         protected void GetProfile()
         {
-            // Populate form with existing student record
+            // Populate form with existing UserProfile record
             String UserID = Convert.ToString(User.Identity.GetUserId());
 
             try
@@ -58,16 +59,14 @@ namespace fitness_weight_tracker.users
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            //try
-            //{
                 // Use EF to connect to SQL Server
                 using (fit_trackEntities db = new fit_trackEntities())
                 {
-                    // Use the Student Model to save the new record
+                    // Use the UserProfile Model to save the new record
                     UserProfile up = new UserProfile();
                     String UserID = Convert.ToString(User.Identity.GetUserId());
 
-                    // Get the current student from the Enity Framework
+                    // Get the current UserProfile from the Enity Framework
                     up = (from objS in db.UserProfiles
                           where objS.UserID == UserID
                           select objS).FirstOrDefault();
@@ -82,13 +81,8 @@ namespace fitness_weight_tracker.users
                     db.SaveChanges();
 
                     // Redirect to the updated Profile page
-                    Response.Redirect("/admin/profile.aspx");
+                    Response.Redirect("profile.aspx");
                 }
-            //}
-            //catch (Exception ex)
-           // {
-           //     Response.Redirect("/error.aspx");
-           // }
 
         }
     }

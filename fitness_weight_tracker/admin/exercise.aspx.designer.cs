@@ -40,6 +40,15 @@ namespace fitness_weight_tracker.admin {
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
+        /// actNameRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator actNameRequiredValidator;
+        
+        /// <summary>
         /// pnlCardio control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,24 @@ namespace fitness_weight_tracker.admin {
         protected global::System.Web.UI.WebControls.TextBox txtDistance;
         
         /// <summary>
+        /// actDistanceRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator actDistanceRequiredValidator;
+        
+        /// <summary>
+        /// actDistanceRangeValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator actDistanceRangeValidator;
+        
+        /// <summary>
         /// txtDuration control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,24 @@ namespace fitness_weight_tracker.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDuration;
+        
+        /// <summary>
+        /// actDurationRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator actDurationRequiredValidator;
+        
+        /// <summary>
+        /// actDurationRangeValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator actDurationRangeValidator;
         
         /// <summary>
         /// pnlMuscles control.
@@ -85,6 +130,24 @@ namespace fitness_weight_tracker.admin {
         protected global::System.Web.UI.WebControls.TextBox txtReps;
         
         /// <summary>
+        /// actRepsRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator actRepsRequiredValidator;
+        
+        /// <summary>
+        /// actRepsRangeValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator actRepsRangeValidator;
+        
+        /// <summary>
         /// txtWeight control.
         /// </summary>
         /// <remarks>
@@ -92,6 +155,24 @@ namespace fitness_weight_tracker.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWeight;
+        
+        /// <summary>
+        /// actWeightRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator actWeightRequiredValidator;
+        
+        /// <summary>
+        /// actWeightRangeValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator actWeightRangeValidator;
         
         /// <summary>
         /// pnlButton control.

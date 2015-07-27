@@ -16,7 +16,7 @@ namespace fitness_weight_tracker.users
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // If save wasn't clicked AND we have a ActLogID in the URL
+            // If save wasn't clicked AND we have a FoodLog in the URL
             if ((!IsPostBack) && (Request.QueryString.Count > 0))
             {
                 GetFoodLog();
@@ -25,7 +25,7 @@ namespace fitness_weight_tracker.users
 
         protected void GetFoodLog()
         {
-            // Populate form with existing student record
+            // Populate form with existing Food Log record, if it exists
             Int32 FoodID = Convert.ToInt32(Request.QueryString["FoodLogID"]);
 
             try
@@ -36,6 +36,7 @@ namespace fitness_weight_tracker.users
                                       where objS.FoodLogID == FoodID
                                       select objS).FirstOrDefault();
 
+                    // If there is already a food log for this meal
                     if (fl != null)
                     {
                         txtFoodName.Text = fl.FoodName;
@@ -154,7 +155,7 @@ namespace fitness_weight_tracker.users
                         // Get the ID from the URL
                         FoodLogID = Convert.ToInt32(Request.QueryString["FoodLogID"]);
 
-                        // Get the current ActLog from the Enity Framework
+                        // Get the current FoodLog from the Enity Framework
                         d = (from objS in db.FoodLogs
                              where objS.FoodLogID == FoodLogID
                              select objS).FirstOrDefault();
@@ -173,6 +174,7 @@ namespace fitness_weight_tracker.users
                     d.Sodium = Convert.ToInt32(txtSodium.Text);
                     d.FoodDate = DateTime.Now;
 
+                    // If this is a new log, add log to FoodLog table
                     if (FoodLogID == 0)
                     {
                         db.FoodLogs.Add(d);

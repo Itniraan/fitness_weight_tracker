@@ -8,12 +8,8 @@
         <EntityTypeShape EntityType="fit_trackModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="fit_trackModel.AspNetRole" Width="1.5" PointX="3.75" PointY="4.375" />
         <EntityTypeShape EntityType="fit_trackModel.AspNetUserClaim" Width="1.5" PointX="8.25" PointY="7.25" />
-        <EntityTypeShape EntityType="fit_trackModel.AspNetUserLogin" Width="1.5" PointX="8.25" PointY="1.25" />
         <EntityTypeShape EntityType="fit_trackModel.AspNetUser" Width="1.5" PointX="6" PointY="3.125" />
-        <EntityTypeShape EntityType="fit_trackModel.UserProfile" Width="1.5" PointX="8.25" PointY="3.75" />
         <AssociationConnector Association="fit_trackModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
-        <AssociationConnector Association="fit_trackModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
-        <AssociationConnector Association="fit_trackModel.FK__UserProfi__UserI__48CFD27E" />
         <AssociationConnector Association="fit_trackModel.AspNetUserRoles" />
         <EntityTypeShape EntityType="fit_trackModel.FoodLog" Width="1.5" PointX="13.375" PointY="4.875" />
         <AssociationConnector Association="fit_trackModel.FK__FoodLog__UserID__4D94879B" />

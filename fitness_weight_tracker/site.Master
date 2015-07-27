@@ -48,7 +48,7 @@
             </asp:ContentPlaceHolder>
         </div>
         <div>
-            <footer class="alert alert-info">Emily and Blake | Solar Fitness</footer>
+            <footer class="alert alert-info">Emily Black &#38; Blake Murdock | Solar Fitness &#169; 2015</footer>
         </div>
     </form>
 

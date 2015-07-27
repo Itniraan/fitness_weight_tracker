@@ -19,15 +19,15 @@ namespace fitness_weight_tracker.users
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Grab username to label title for each GridView
             lblFoodName.Text = User.Identity.GetUserName();
             lblActName.Text = User.Identity.GetUserName();
             if (!IsPostBack)
             {
-                //Session["SortColumn"] = "FoodLogID";
                 Session["SortDirection"] = "ASC";
-                // If loading the page for the first time, populate the FoodLog an ActLog grids
 
 
+                // If selecting FoodLog, load FoodLog GridView, and make it visible.
             }
             if (ddlChoice.SelectedValue == "FoodLog")
             {
@@ -36,6 +36,7 @@ namespace fitness_weight_tracker.users
                 pnlFoodLog.Visible = true;
                 pnlActLog.Visible = false;
             }
+                // If selecting ActLog, load ActLog GridView, and make it visible
             else if (ddlChoice.SelectedValue == "ActLog")
             {
                 Session["SortColumn"] = "ActLogID";
@@ -43,6 +44,7 @@ namespace fitness_weight_tracker.users
                 pnlFoodLog.Visible = false;
                 pnlActLog.Visible = true;
             }
+                // Otherwise, make neither one visible
             else
             {
                 pnlFoodLog.Visible = false;

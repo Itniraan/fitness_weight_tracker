@@ -18,6 +18,7 @@ namespace fitness_weight_tracker.users
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Grab username and userID from AspNet Authentication
             String userName = Convert.ToString(User.Identity.GetUserName());
             String userID = Convert.ToString(User.Identity.GetUserId());
             lblUsername.Text = userName;
@@ -29,6 +30,7 @@ namespace fitness_weight_tracker.users
                          where up.UserID == userID
                          select up).FirstOrDefault();
 
+                // If user already has a profile, print the details to the screen
                 if (userP != null)
                 {
                     lblFirstName.Text = userP.FirstName;
@@ -38,6 +40,7 @@ namespace fitness_weight_tracker.users
                     lblUserWeight.Text = Convert.ToString(userP.UserWeight);
                     lblAge.Text = Convert.ToString(userP.Age);
                 }
+                    // If the user doesn't have a profile yet (New User), add a new entry to the UserProfile table with their UserID
                 else
                 {
                     userP = new UserProfile();

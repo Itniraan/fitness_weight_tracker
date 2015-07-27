@@ -25,7 +25,7 @@ namespace fitness_weight_tracker.admin
 
         protected void GetAct()
         {
-            // Populate form with existing student record
+            // Populate form with existing ActLog record
             Int32 ActID = Convert.ToInt32(Request.QueryString["ActLogID"]);
 
             try
@@ -36,6 +36,7 @@ namespace fitness_weight_tracker.admin
                                  where objS.ActLogID == ActID
                                  select objS).FirstOrDefault();
 
+                    // If there is an existing Activity Log, populate the form with the valus from the DB
                     if (al != null)
                     {
                         txtName.Text = al.ActName;
@@ -44,6 +45,7 @@ namespace fitness_weight_tracker.admin
                         txtReps.Text = Convert.ToString(al.ActReps);
                         txtWeight.Text = Convert.ToString(al.ActWeight);
                         ddlExercise.SelectedValue = al.ActType;
+                        // If the type of exercise is Cardio, show cardio fields
                         if (ddlExercise.SelectedValue == "Cardio")
                         {
                             pnlCardio.Visible = true;
@@ -51,6 +53,7 @@ namespace fitness_weight_tracker.admin
                             pnlName.Visible = true;
                             pnlButton.Visible = true;
                         }
+                            // If the type of exercise is weight lifting, show weight lifting fields
                         else if (ddlExercise.SelectedValue == "Weight Lifting")
                         {
                             pnlCardio.Visible = false;
@@ -71,6 +74,7 @@ namespace fitness_weight_tracker.admin
 
         protected void ddlExercise_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // If the type of exercise is Cardio, show cardio fields
             if (ddlExercise.SelectedValue == "Cardio")
             {
                 pnlCardio.Visible = true;
@@ -78,6 +82,7 @@ namespace fitness_weight_tracker.admin
                 pnlName.Visible = true;
                 pnlButton.Visible = true;
             }
+            // If the type of exercise is weight lifting, show weight lifting fields
             else if (ddlExercise.SelectedValue == "Weight Lifting")
             {
                 pnlCardio.Visible = false;
@@ -86,6 +91,7 @@ namespace fitness_weight_tracker.admin
                 pnlButton.Visible = true;
 
             }
+                // Otherwise, show neither one
             else
             {
                 pnlCardio.Visible = false;
@@ -105,8 +111,10 @@ namespace fitness_weight_tracker.admin
                     ActivityLog d = new ActivityLog();
                     Int32 ActLogID = 0;
 
+                    // Grab the userID from the Authentication table
                     String userID = Convert.ToString(User.Identity.GetUserId());
 
+                    // If an Activity Log already exists (Edit), load the values for that ActLogID from the ActLog table
                     if (Request.QueryString["ActLogID"] != null)
                     {
                         // Get the ID from the URL
@@ -137,6 +145,7 @@ namespace fitness_weight_tracker.admin
                         d.ActDate = DateTime.Now;
                     }
 
+                    // If there is no ActLog, add a new one to the DB now
                     if (ActLogID == 0)
                     {
                         db.ActivityLogs.Add(d);
