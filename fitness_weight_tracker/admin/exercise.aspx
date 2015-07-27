@@ -24,16 +24,16 @@
                 <div>
                     <label for="txtDistance">Distance:</label>
                     <asp:TextBox runat="server" ID="txtDistance" CssClass="form-control-static" TextMode="Number"></asp:TextBox>
+                    <label class="text-left">kilometers</label>
                     <asp:RequiredFieldValidator ID="actDistanceRequiredValidator" runat="server" ErrorMessage="Distance is Required!" CssClass="label label-danger" ControlToValidate="txtDistance" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RangeValidator ID="actDistanceRangeValidator" runat="server" ErrorMessage="Distance Must be Between 0 and 10,000" MinimumValue="0" MaximumValue="10000" CssClass="label label-danger" ControlToValidate="txtDistance" Type="Double" Display="Dynamic"></asp:RangeValidator>
-                    <label class="text-left">kilometers</label>
                 </div>
                 <div>
                     <label for="txtDuration">Duration:</label>
                     <asp:TextBox runat="server" ID="txtDuration" CssClass="form-control-static" TextMode="Number"></asp:TextBox>
+                    <label class="text-left">minutes</label>
                     <asp:RequiredFieldValidator ID="actDurationRequiredValidator" runat="server" ErrorMessage="Duration is Required!" CssClass="label label-danger" ControlToValidate="txtDuration" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RangeValidator ID="actDurationRangeValidator" runat="server" ErrorMessage="Duration Must be Between 0 and 1000" MinimumValue="0" MaximumValue="1000" CssClass="label label-danger" ControlToValidate="txtDuration" Type="Double" Display="Dynamic"></asp:RangeValidator>
-                    <label class="text-left">minutes</label>
                 </div>
             </asp:Panel>
             <asp:Panel runat="server" ID="pnlMuscles" Visible="false">
