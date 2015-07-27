@@ -76,6 +76,15 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.TextBox txtFoodName;
         
         /// <summary>
+        /// RequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredValidator;
+        
+        /// <summary>
         /// txtCalories control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
         
         /// <summary>
+        /// RequiredValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredValidator1;
+        
+        /// <summary>
         /// ddlFoodGroup control.
         /// </summary>
         /// <remarks>
@@ -101,6 +119,15 @@ namespace fitness_weight_tracker.users {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFoodGroup;
+        
+        /// <summary>
+        /// foodRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator foodRequiredValidator;
         
         /// <summary>
         /// txtServings control.
@@ -121,6 +148,15 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidator2;
         
         /// <summary>
+        /// servingsRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator servingsRequiredValidator;
+        
+        /// <summary>
         /// txtCarbs control.
         /// </summary>
         /// <remarks>
@@ -139,6 +175,15 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidator3;
         
         /// <summary>
+        /// carbRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator carbRequiredValidator;
+        
+        /// <summary>
         /// txtProtein control.
         /// </summary>
         /// <remarks>
@@ -146,6 +191,15 @@ namespace fitness_weight_tracker.users {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProtein;
+        
+        /// <summary>
+        /// pRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator pRequiredValidator;
         
         /// <summary>
         /// RangeValidator4 control.
@@ -175,6 +229,15 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidator5;
         
         /// <summary>
+        /// sRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator sRequiredValidator;
+        
+        /// <summary>
         /// txtFat control.
         /// </summary>
         /// <remarks>
@@ -191,6 +254,15 @@ namespace fitness_weight_tracker.users {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidator6;
+        
+        /// <summary>
+        /// fRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator fRequiredValidator;
         
         /// <summary>
         /// btnAddFood control.
