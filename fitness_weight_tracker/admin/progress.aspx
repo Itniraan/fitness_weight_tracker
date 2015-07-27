@@ -62,7 +62,6 @@
             OnRowDeleting="grdActLog_RowDeleting" OnPageIndexChanging="grdActLog_PageIndexChanging" OnSorting="grdActLog_Sorting" 
             OnRowDataBound="grdActLog_RowDataBound" DataKeyNames="ActLogID" CssClass="table table-striped table-hover">
             <Columns>
-                <asp:BoundField DataField="ActLogID" HeaderText="Activity Log ID" SortExpression="ActLogID" />
                 <asp:BoundField DataField="ActName" HeaderText="Activity Name" SortExpression="ActName" />
                 <asp:BoundField DataField="ActType" HeaderText="Activity Type" SortExpression="ActType" />
                 <asp:BoundField DataField="ActDuration" HeaderText="Activity Duration" SortExpression="ActDuration" />
