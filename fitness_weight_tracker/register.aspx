@@ -2,6 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <!--
+    Page Name: register.aspx
+    Authors: Emily and Blake
+    Description: Page to register users for a login. Once registered it gives them access to the private links.
+     -->
     <h1>Register</h1>
     <h5>All fields are required</h5>
 

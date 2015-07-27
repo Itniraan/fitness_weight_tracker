@@ -2,6 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <!--
+    Page Name: progress.aspx
+    Authors: Blake and Emily
+    Description: Page to show users their food and activity logs.
+     -->
 
     <h1>Progress</h1>
     <asp:Panel ID="pnlChoice" runat="server" Visible="true">

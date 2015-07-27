@@ -4,6 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <!--
+    Page Name: site.Master
+    Authors: Emily and Blake
+    Description: Page that links to css and bootstrap. Also has the header, nav and footer.
+     -->
     <title>Solar Fitness</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

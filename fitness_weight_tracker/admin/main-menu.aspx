@@ -2,6 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <!--
+    Page Name: main-menu.aspx
+    Authors: Blake and Emily
+    Description: Page to show options available to users.
+     -->
     <h1 class="text-center">Menu</h1>
     <div class="center_div">
     <div class="container-fluid">

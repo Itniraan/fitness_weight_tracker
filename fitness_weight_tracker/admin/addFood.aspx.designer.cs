@@ -85,6 +85,15 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.TextBox txtCalories;
         
         /// <summary>
+        /// RangeValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
+        
+        /// <summary>
         /// ddlFoodGroup control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.TextBox txtServings;
         
         /// <summary>
+        /// RangeValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator2;
+        
+        /// <summary>
         /// txtCarbs control.
         /// </summary>
         /// <remarks>
@@ -110,6 +128,15 @@ namespace fitness_weight_tracker.users {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCarbs;
+        
+        /// <summary>
+        /// RangeValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator3;
         
         /// <summary>
         /// txtProtein control.
@@ -121,6 +148,15 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.TextBox txtProtein;
         
         /// <summary>
+        /// RangeValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator4;
+        
+        /// <summary>
         /// txtSodium control.
         /// </summary>
         /// <remarks>
@@ -130,6 +166,15 @@ namespace fitness_weight_tracker.users {
         protected global::System.Web.UI.WebControls.TextBox txtSodium;
         
         /// <summary>
+        /// RangeValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator5;
+        
+        /// <summary>
         /// txtFat control.
         /// </summary>
         /// <remarks>
@@ -137,6 +182,15 @@ namespace fitness_weight_tracker.users {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFat;
+        
+        /// <summary>
+        /// RangeValidator6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator6;
         
         /// <summary>
         /// btnAddFood control.

@@ -2,6 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <!--
+    Page Name: profile.aspx
+    Authors: Emily and Blake
+    Description: Page to view users profile information. Also can edit profile from here.
+    -->
     <h1>User Details for: <asp:Label ID="lblUsername" runat="server" /></h1>
     <asp:Label runat="server" ID="lblError" CssClass="label label-info"></asp:Label>
      <div>

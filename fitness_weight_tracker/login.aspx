@@ -2,6 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <!--
+    Page Name: login.aspx
+    Authors: Emily and Blake
+    Description: Page to login users that have already registered.
+     -->
     <h1>Login</h1>
     <h5>All fields are required</h5>
 
