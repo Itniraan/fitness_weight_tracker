@@ -37,16 +37,16 @@ namespace fitness_weight_tracker.users
                 using (fit_trackEntities db = new fit_trackEntities())
                 {
                     UserProfile up = (from objS in db.UserProfiles
-                                 where objS.UserID == UserID
-                                 select objS).FirstOrDefault();
+                                      where objS.UserID == UserID
+                                      select objS).FirstOrDefault();
 
 
-                        txtFirstName.Text = up.FirstName;
-                        txtLastName.Text = up.LastName;
-                        txtEmail.Text = up.Email;
-                        txtHeight.Text = Convert.ToString(up.UserHeight);
-                        txtWeight.Text = Convert.ToString(up.UserWeight);
-                        txtAge.Text = Convert.ToString(up.Age);
+                    txtFirstName.Text = up.FirstName;
+                    txtLastName.Text = up.LastName;
+                    txtEmail.Text = up.Email;
+                    txtHeight.Text = Convert.ToString(up.UserHeight);
+                    txtWeight.Text = Convert.ToString(up.UserWeight);
+                    txtAge.Text = Convert.ToString(up.Age);
 
                 }
             }
@@ -59,30 +59,30 @@ namespace fitness_weight_tracker.users
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-                // Use EF to connect to SQL Server
-                using (fit_trackEntities db = new fit_trackEntities())
-                {
-                    // Use the UserProfile Model to save the new record
-                    UserProfile up = new UserProfile();
-                    String UserID = Convert.ToString(User.Identity.GetUserId());
+            // Use EF to connect to SQL Server
+            using (fit_trackEntities db = new fit_trackEntities())
+            {
+                // Use the UserProfile Model to save the new record
+                UserProfile up = new UserProfile();
+                String UserID = Convert.ToString(User.Identity.GetUserId());
 
-                    // Get the current UserProfile from the Enity Framework
-                    up = (from objS in db.UserProfiles
-                          where objS.UserID == UserID
-                          select objS).FirstOrDefault();
+                // Get the current UserProfile from the Enity Framework
+                up = (from objS in db.UserProfiles
+                      where objS.UserID == UserID
+                      select objS).FirstOrDefault();
 
-                    up.FirstName = txtFirstName.Text;
-                    up.LastName = txtLastName.Text;
-                    up.Email = txtEmail.Text;
-                    up.UserHeight = Convert.ToDecimal(txtHeight.Text);
-                    up.UserWeight = Convert.ToDecimal(txtWeight.Text);
-                    up.Age = Convert.ToInt32(txtAge.Text);
+                up.FirstName = txtFirstName.Text;
+                up.LastName = txtLastName.Text;
+                up.Email = txtEmail.Text;
+                up.UserHeight = Convert.ToDecimal(txtHeight.Text);
+                up.UserWeight = Convert.ToDecimal(txtWeight.Text);
+                up.Age = Convert.ToInt32(txtAge.Text);
 
-                    db.SaveChanges();
+                db.SaveChanges();
 
-                    // Redirect to the updated Profile page
-                    Response.Redirect("profile.aspx");
-                }
+                // Redirect to the updated Profile page
+                Response.Redirect("profile.aspx");
+            }
 
         }
     }
